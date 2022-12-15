@@ -19,7 +19,7 @@ public class User {
     private String name,surname,mail,password;
     @Column
     private Date dob;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shoppingCart_id",referencedColumnName = "id")
     private ShoppingCart shoppingCart;
 }

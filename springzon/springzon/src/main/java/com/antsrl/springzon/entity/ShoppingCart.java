@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="ShoppingCart")
@@ -18,10 +17,6 @@ public class ShoppingCart {
     @Column
     private Long id;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "ShoppingCart")
     private User user;
-
-
 }
