@@ -1,5 +1,6 @@
 package com.antsrl.springzon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import javax.persistence.*;
 
@@ -17,5 +18,6 @@ public class User {
     private String username;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="shopping_cart_id")
+    @JsonIgnoreProperties(value = "user")
     private Shoppingcart shoppingCart;
 }

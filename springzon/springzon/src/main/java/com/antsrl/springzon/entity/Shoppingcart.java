@@ -20,6 +20,7 @@ public class Shoppingcart {
     @JsonIgnoreProperties(value = "shopping_Cart")
     private List<Product> prodotti;
     @OneToOne(mappedBy = "shoppingCart")
+    @JsonIgnoreProperties(value = "shoppingCart")
     private User user;
 
 }
