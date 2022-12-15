@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DescriptionRepository extends JpaRepository<Description, Long> {
+    public Description findDescriptionById(Long id);
 }
