@@ -13,23 +13,23 @@ public class ShoppingcartController {
     ShoppingcartService shoppingcartService;
 
     @GetMapping("/all")
-    private List<Shoppingcart> all(){
+    public List<Shoppingcart> all(){
         return shoppingcartService.getAll();
     }
     @GetMapping("/find/{id}")
-    private Shoppingcart all(@PathVariable Long id){
+    public Shoppingcart all(@PathVariable Long id){
         return shoppingcartService.getBy(id);
     }
     @PostMapping("/add")
-    private Shoppingcart add(@RequestBody Shoppingcart shoppingcart){
+    public Shoppingcart add(@RequestBody Shoppingcart shoppingcart){
         return shoppingcartService.add(shoppingcart);
     }
     @PutMapping("/update/{id}")
-    private Shoppingcart update(@RequestBody Shoppingcart shoppingcart, @PathVariable Long id){
+    public Shoppingcart update(@RequestBody Shoppingcart shoppingcart, @PathVariable Long id){
         return shoppingcartService.update(shoppingcart, id);
     }
     @DeleteMapping("/delete/{id}")
-    private void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id){
         shoppingcartService.delete(id);
     }
 }

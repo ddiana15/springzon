@@ -13,23 +13,23 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/all")
-    private List<User> all(){
+    public List<User> all(){
         return userService.getAll();
     }
     @GetMapping("/find/{id}")
-    private User all(@PathVariable Long id){
+    public User all(@PathVariable Long id){
         return userService.getBy(id);
     }
     @PostMapping("/add")
-    private User add(@RequestBody User user){
+    public User add(@RequestBody User user){
         return userService.add(user);
     }
     @PutMapping("/update/{id}")
-    private User update(@RequestBody User user, @PathVariable Long id){
+    public User update(@RequestBody User user, @PathVariable Long id){
         return userService.update(user, id);
     }
     @DeleteMapping("/delete/{id}")
-    private void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id){
         userService.delete(id);
     }
 }

@@ -12,23 +12,23 @@ public class DescriptionController {
     @Autowired
     DescriptionService descriptionService;
     @GetMapping("/all")
-    private List<Description> all(){
+    public List<Description> all(){
         return descriptionService.getAll();
     }
     @GetMapping("/find/{id}")
-    private Description all(@PathVariable Long id){
+    public Description all(@PathVariable Long id){
         return descriptionService.getBy(id);
     }
     @PostMapping("/add")
-    private Description add(@RequestBody Description description){
+    public Description add(@RequestBody Description description){
         return descriptionService.add(description);
     }
     @PutMapping("/update/{id}")
-    private Description update(@RequestBody Description description, @PathVariable Long id){
+    public Description update(@RequestBody Description description, @PathVariable Long id){
         return descriptionService.update(description, id);
     }
     @DeleteMapping("/delete/{id}")
-    private void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id){
         descriptionService.delete(id);
     }
     
