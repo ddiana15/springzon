@@ -1,6 +1,7 @@
 package com.antsrl.springzon.service;
 
 import com.antsrl.springzon.entity.Shoppingcart;
+import com.antsrl.springzon.repository.ProductRepository;
 import com.antsrl.springzon.repository.ShoppingcartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,8 @@ import java.util.List;
 public class ShoppingcartService {
     @Autowired
     ShoppingcartRepository shoppingcartRepository;
+    @Autowired
+    ProductRepository productRepository;
     public List<Shoppingcart> getAll(){
         return shoppingcartRepository.findAll();
     }
@@ -31,10 +34,12 @@ public class ShoppingcartService {
         shoppingcartRepository.delete(shoppingcart);
     }
     public void addinto(Long prodid, Long cartid){
-        shoppingcartRepository.insert(prodid, cartid);
+        if(shoppingcartRepository.existsById(cartid)&&productRepository.existsById(prodid))
+            shoppingcartRepository.insert(prodid, cartid);
     }
     public void remover(Long prodid, Long cartid){
-        shoppingcartRepository.remove(prodid, cartid);
+        if(shoppingcartRepository.existsById(cartid)&&productRepository.existsById(prodid))
+            shoppingcartRepository.remove(prodid, cartid);
     }
 
 }
