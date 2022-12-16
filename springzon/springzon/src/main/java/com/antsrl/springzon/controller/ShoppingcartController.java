@@ -30,6 +30,7 @@ public class ShoppingcartController {
     }
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id){
+        wipe(id);
         shoppingcartService.delete(id);
     }
     @PostMapping("/insert/{pro_id}/{cart_id}")
