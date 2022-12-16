@@ -33,6 +33,8 @@ public class ShoppingcartService {
     public void addinto(Long prodid, Long cartid){
         shoppingcartRepository.insert(prodid, cartid);
     }
-
+    public void remover(Long prodid, Long cartid){
+        shoppingcartRepository.remove(prodid, cartid);
+    }
 
 }
