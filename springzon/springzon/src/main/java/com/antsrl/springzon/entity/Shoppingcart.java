@@ -20,8 +20,8 @@ public class Shoppingcart {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Shop_Product",
-            joinColumns = { @JoinColumn(name = "product_id") },
-            inverseJoinColumns = { @JoinColumn(name = "shoppingcart_id") }
+            joinColumns = { @JoinColumn(name = "shoppingcart_id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id") }
     )
     @JsonIgnoreProperties(value = "shopping_Cart")
     private List<Product> prodotti;

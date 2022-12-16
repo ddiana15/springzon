@@ -34,10 +34,10 @@ public class ShoppingcartController {
     }
     @PostMapping("/insert/{pro_id}/{cart_id}")
     public void insert(@PathVariable Long pro_id, @PathVariable Long cart_id){
-        shoppingcartService.addinto(pro_id, cart_id);
+        shoppingcartService.addinto(cart_id, pro_id);
     }
     @DeleteMapping("/remove/{pro_id}/{cart_id}")
     public void remove(@PathVariable Long pro_id, @PathVariable Long cart_id){
-        shoppingcartService.remover(pro_id,cart_id);
+        shoppingcartService.remover(pro_id, cart_id);
     }
 }
