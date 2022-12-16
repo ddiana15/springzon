@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "software_house")
+@Table(name = "description")
 public class Description {
     
     @Id
@@ -18,5 +18,8 @@ public class Description {
     private Long id;
     
     private String descrizione;
+    
+    @OneToOne(mappedBy = "descrizione")
+    private Product prodotto;
     
 }

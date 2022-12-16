@@ -1,14 +1,16 @@
 package com.antsrl.springzon.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
 @Table(name = "user")
 public class User {
@@ -19,7 +21,9 @@ public class User {
     
     private String nickname;
     
-    @OneToOne//(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "shopping_cart_id", nullable = false, unique = true, referencedColumnName = "id")
+   // @JsonManagedReference
     private ShoppingCart cart;
     
 }
