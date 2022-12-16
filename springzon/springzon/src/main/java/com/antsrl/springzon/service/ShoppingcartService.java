@@ -34,12 +34,16 @@ public class ShoppingcartService {
         shoppingcartRepository.delete(shoppingcart);
     }
     public void addinto(Long prodid, Long cartid){
-        if(shoppingcartRepository.existsById(cartid)&&productRepository.existsById(prodid))
+        if(shoppingcartRepository.existsById(cartid)||productRepository.existsById(prodid))
             shoppingcartRepository.insert(prodid, cartid);
     }
     public void remover(Long prodid, Long cartid){
-        if(shoppingcartRepository.existsById(cartid)&&productRepository.existsById(prodid))
+        if(shoppingcartRepository.existsById(cartid)||productRepository.existsById(prodid))
             shoppingcartRepository.remove(prodid, cartid);
+
+    }
+    public void wipe(Long cartid){
+        shoppingcartRepository.wipe(cartid);
     }
 
 

@@ -40,4 +40,8 @@ public class ShoppingcartController {
     public void remove(@PathVariable Long pro_id, @PathVariable Long cart_id){
         shoppingcartService.remover(pro_id, cart_id);
     }
+    @DeleteMapping("/wipe/{id}")
+    public void wipe(@PathVariable Long id){
+        shoppingcartService.wipe(id);
+    }
 }

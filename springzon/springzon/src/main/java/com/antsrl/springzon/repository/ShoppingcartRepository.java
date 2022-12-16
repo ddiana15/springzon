@@ -12,9 +12,6 @@ import javax.transaction.Transactional;
 @Repository
 public interface ShoppingcartRepository extends JpaRepository<Shoppingcart, Long> {
     public Shoppingcart findShoppingcartById(Long id);
-   // @Query("insert into shop_product OPEN (?1, ?1)")
-   // public void insert(Long prodid, Long cartid);
-
     @Modifying
     @Query(value = "insert into shop_product VALUES (:shoppingcart_id, :product_id)", nativeQuery = true)
     @Transactional
@@ -23,5 +20,8 @@ public interface ShoppingcartRepository extends JpaRepository<Shoppingcart, Long
     @Query(value = "delete from shop_product where product_id=:product_id and shoppingcart_id=:shoppingcart_id", nativeQuery = true)
     @Transactional
     void remove(@Param("product_id") Long product_id, @Param("shoppingcart_id") Long shoppingcart_id);
-
+    @Modifying
+    @Query(value = "delete from shop_product where shoppingcart_id=:shoppingcart_id", nativeQuery = true)
+    @Transactional
+    void wipe(@Param("shoppingcart_id") Long shoppingcart_id);
 }
