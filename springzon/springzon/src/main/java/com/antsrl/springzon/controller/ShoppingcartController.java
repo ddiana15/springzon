@@ -32,4 +32,9 @@ public class ShoppingcartController {
     public void delete(@PathVariable Long id){
         shoppingcartService.delete(id);
     }
+    @PostMapping("/insert/{pro_id}/{cart_id}")
+    public void insert(@PathVariable Long pro_id, @PathVariable Long cart_id){
+        shoppingcartService.addinto(pro_id, cart_id);
+    }
+
 }

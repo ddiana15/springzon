@@ -30,4 +30,9 @@ public class ShoppingcartService {
         Shoppingcart shoppingcart = shoppingcartRepository.findShoppingcartById(id);
         shoppingcartRepository.delete(shoppingcart);
     }
+    public void addinto(Long prodid, Long cartid){
+        shoppingcartRepository.insert(prodid, cartid);
+    }
+
+
 }
