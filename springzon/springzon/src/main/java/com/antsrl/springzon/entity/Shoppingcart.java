@@ -16,7 +16,12 @@ public class Shoppingcart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "shoppingCart")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "Shop_Product",
+            joinColumns = { @JoinColumn(name = "product_id") },
+            inverseJoinColumns = { @JoinColumn(name = "shoppingcart_id") }
+    )
     @JsonIgnoreProperties(value = "shopping_Cart")
     private List<Product> prodotti;
     @OneToOne(mappedBy = "shoppingCart")

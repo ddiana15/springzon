@@ -2,8 +2,8 @@ package com.antsrl.springzon.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-
 import javax.persistence.*;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
@@ -21,7 +21,7 @@ public class Product {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="description_id")
     private Description description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "prodotti")
     @JsonIgnoreProperties(value = "prodotti")
-    private Shoppingcart shoppingCart;
+    private List<Shoppingcart> shoppingCart;
 }
