@@ -20,7 +20,7 @@ public interface ShoppingcartRepository extends JpaRepository<Shoppingcart, Long
     @Transactional
     void insert(@Param("product_id") Long product_id, @Param("shoppingcart_id") Long shoppingcart_id);
     @Modifying
-    @Query(value = "delete from shop_product where product_id=:product_id and shoppingcart_id=:shoppingcart_id", nativeQuery = true)
+    @Query(value = "delete from shop_product where shoppingcart_id=:product_id and product_id=:shoppingcart_id", nativeQuery = true)
     @Transactional
     void remove(@Param("product_id") Long product_id, @Param("shoppingcart_id") Long shoppingcart_id);
 
