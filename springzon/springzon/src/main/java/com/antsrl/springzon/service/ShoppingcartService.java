@@ -42,4 +42,5 @@ public class ShoppingcartService {
             shoppingcartRepository.remove(prodid, cartid);
     }
 
+
 }
