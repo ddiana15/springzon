@@ -17,6 +17,6 @@ public class Description {
     private Long id;
     @Column
     private String description;
-    @OneToOne(mappedBy = "Description")
+    @OneToOne(mappedBy = "description")
     private Product product;
 }

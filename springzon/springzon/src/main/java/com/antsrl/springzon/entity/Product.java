@@ -1,10 +1,12 @@
 package com.antsrl.springzon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Product")
@@ -22,4 +24,7 @@ public class Product {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "description_id",referencedColumnName = "id")
     private Description description;
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    @JsonIgnoreProperties(value = "product")
+    private List<Shopcut> shopcuts;
 }
