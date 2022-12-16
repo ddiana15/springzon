@@ -1,5 +1,6 @@
 package com.antsrl.springzon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -19,5 +20,6 @@ public class Description {
     private String text;
     @OneToOne(mappedBy = "description")
     @JsonIgnoreProperties(value = "description")
+    @JsonIgnore
     private Product product;
 }

@@ -1,5 +1,6 @@
 package com.antsrl.springzon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import javax.persistence.*;
@@ -23,5 +24,6 @@ public class Product {
     private Description description;
     @ManyToMany(mappedBy = "prodotti")
     @JsonIgnoreProperties(value = "prodotti")
+    @JsonIgnore
     private List<Shoppingcart> shoppingCart;
 }
