@@ -30,6 +30,7 @@ public class ShoppingcartService {
         return shoppingcartRepository.findShoppingcartById(id);
     }
     public void delete(Long id){
+        wipe(id);
         Shoppingcart shoppingcart = shoppingcartRepository.findShoppingcartById(id);
         shoppingcartRepository.delete(shoppingcart);
     }
