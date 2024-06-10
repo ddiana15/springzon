@@ -20,4 +20,6 @@ public class SwaggerConfiguration {
                 .paths(PathSelectors.any())
                 .build();
     }
+
+    public void ciao(){};
 }
